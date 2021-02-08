@@ -27,6 +27,8 @@ public class User {
 
     private String phone;
 
+    private boolean enabled;
+
     @ManyToMany
     private List<Role> roles;
 
