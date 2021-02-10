@@ -22,13 +22,14 @@ public class HorseHomeUserDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String email)
+    public UserDetails loadUserByUsername(String userIdentification)
             throws UsernameNotFoundException {
-        User user = userService.findByEmail(email);
+        User user;
+        if(new Validator().validateEmailAddress(userIdentification))
+            user = userService.findByEmail(userIdentification);
+        else user = userService.findByUsername(userIdentification);
 
-        if (user == null) {
-            throw new UsernameNotFoundException("Could not find user");
-        }
+        if (user == null) throw new UsernameNotFoundException("Could not find user");
 
         return new HorseHomeUserDetails(user);
     }
