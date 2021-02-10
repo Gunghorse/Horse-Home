@@ -1,6 +1,6 @@
 package gunghorse.com.github.auth;
 
-import gunghorse.com.github.model.user.Role;
+import gunghorse.com.github.model.user.role.Role;
 import gunghorse.com.github.model.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -24,7 +24,7 @@ public class HorseHomeUserDetails implements UserDetails {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
         for (Role role : roles)
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
+            authorities.add(new SimpleGrantedAuthority(role.getRole().name()));
 
         return authorities;
     }

@@ -2,7 +2,7 @@ package gunghorse.com.github.auth;
 
 import gunghorse.com.github.auth.exceptions.EmailOrUsernameAlreadyExistsException;
 import gunghorse.com.github.model.user.User;
-import gunghorse.com.github.repositories.UserRepository;
+import gunghorse.com.github.services.UserService;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.*;
@@ -15,19 +15,21 @@ import org.springframework.stereotype.Service;
 public class HorseHomeUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
-    public HorseHomeUserDetailsService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public HorseHomeUserDetailsService(UserService userService) {
+        this.userService = userService;
     }
-    @Override
-    public UserDetails loadUserByUsername(String email)
-            throws UsernameNotFoundException {
-        User user = userRepository.getUserByEmail(email);
 
-        if (user == null) {
-            throw new UsernameNotFoundException("Could not find user");
-        }
+    @Override
+    public UserDetails loadUserByUsername(String userIdentification)
+            throws UsernameNotFoundException {
+        User user;
+        if(new Validator().validateEmailAddress(userIdentification))
+            user = userService.findByEmail(userIdentification);
+        else user = userService.findByUsername(userIdentification);
+
+        if (user == null) throw new UsernameNotFoundException("Could not find user");
 
         return new HorseHomeUserDetails(user);
     }
@@ -41,11 +43,11 @@ public class HorseHomeUserDetailsService implements UserDetailsService {
         String pass = encoder().encode(userDto.getPassword());
         userDto.setPassword(pass);
 
-        return userRepository.save(userDto);
+        return userService.save(userDto);
     }
 
     private boolean emailExist(String email) {
-        return userRepository.getUserByEmail(email) != null;
+        return userService.findByUsername(email) != null;
     }
 
     private PasswordEncoder encoder() {
