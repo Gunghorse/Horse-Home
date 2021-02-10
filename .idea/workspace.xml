@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02037c2d-6906-48bb-821a-df813d8ff7e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/DemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/auth/HorseHomeUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/auth/HorseHomeUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/auth/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/auth/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/auth/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/auth/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/model/user/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/model/user/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/model/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gunghorse/com/github/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gunghorse/com/github/auth/HorseHomeUserDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gunghorse/com/github/auth/HorseHomeUserDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gunghorse/com/github/auth/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gunghorse/com/github/auth/UserDetailsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gunghorse/com/github/auth/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gunghorse/com/github/auth/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gunghorse/com/github/controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gunghorse/com/github/controllers/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gunghorse/com/github/model/user/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gunghorse/com/github/model/user/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gunghorse/com/github/model/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gunghorse/com/github/model/user/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +42,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -68,11 +82,44 @@
       <option name="presentableId" value="Default" />
       <updated>1612721719037</updated>
       <workItem from="1612721725282" duration="48000" />
-      <workItem from="1612727289888" duration="2913000" />
+      <workItem from="1612727289888" duration="3349000" />
+      <workItem from="1612966879915" duration="5551000" />
+      <workItem from="1612975387010" duration="1182000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gunghorse/com/github/auth/UserDetailsServiceImpl.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gunghorse/com/github/controllers/MainController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gunghorse/com/github/auth/HorseHomeUserDetails.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gunghorse/com/github/auth/WebSecurityConfig.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gunghorse/com/github/controllers/MainController.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

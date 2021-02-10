@@ -15,6 +15,17 @@ public class User {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
+    public User(String firstName, String lastName, String email, String password, Date dateOfBirth, String phone, boolean enabled, List<Role> roles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.phone = phone;
+        this.enabled = enabled;
+        this.roles = roles;
+    }
+
     private String firstName;
 
     private String lastName;
@@ -29,7 +40,7 @@ public class User {
 
     private boolean enabled;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 
 }

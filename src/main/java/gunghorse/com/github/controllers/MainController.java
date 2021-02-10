@@ -1,8 +1,10 @@
 package gunghorse.com.github.controllers;
 
+import gunghorse.com.github.auth.HorseHomeUserDetails;
 import gunghorse.com.github.model.user.User;
 import gunghorse.com.github.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,8 +43,27 @@ public class MainController {
         return "Removed";
     }
 
-    @GetMapping(path="/all")
-    public @ResponseBody Iterable<User> getAllUsers() {
+    @GetMapping(path="/allTrainer")
+    public @ResponseBody Iterable<User> getAllUsersT() {
         return userRepository.findAll();
+    }
+
+    @GetMapping(path="/allAdmin")
+    public @ResponseBody Iterable<User> getAllUsersA() {
+        return userRepository.findAll();
+    }
+
+    @GetMapping(path="/allCustomer")
+    public @ResponseBody Iterable<User> getAllUsersC() {
+        return userRepository.findAll();
+    }
+
+    @RequestMapping(value = "/email", method = RequestMethod.GET)
+    @ResponseBody
+    public String currentUserName(Authentication authentication) {
+         HorseHomeUserDetails current = (HorseHomeUserDetails) authentication.getPrincipal();
+         String pass = current.getPassword();
+         String email = authentication.getName();
+         return email + " " + pass;
     }
 }
