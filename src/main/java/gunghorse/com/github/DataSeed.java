@@ -1,7 +1,6 @@
 package gunghorse.com.github;
 
-
-import gunghorse.com.github.auth.UserDetailsServiceImpl;
+import gunghorse.com.github.auth.HorseHomeUserDetailsService;
 import gunghorse.com.github.model.user.Role;
 import gunghorse.com.github.model.user.User;
 import gunghorse.com.github.repositories.*;
@@ -40,7 +39,7 @@ public class DataSeed implements CommandLineRunner {
         User sisi = new User("Sisi", "TheHorse", "sisi@email.com", "1234",
                 new Date(2002, 9, 23), "+472332424", true, Arrays.asList(CUSTOMER));
 
-        UserDetailsServiceImpl udsi = new UserDetailsServiceImpl(userRepository);
+        HorseHomeUserDetailsService udsi = new HorseHomeUserDetailsService(userRepository);
         udsi.registerNewUserAccount(johnathan);
         udsi.registerNewUserAccount(benjamin);
         udsi.registerNewUserAccount(sisi);

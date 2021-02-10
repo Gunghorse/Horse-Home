@@ -8,14 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
+@Service
 @NoArgsConstructor
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class HorseHomeUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
 
-    public UserDetailsServiceImpl(UserRepository userRepository) {
+    public HorseHomeUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
     @Override
