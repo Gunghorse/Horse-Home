@@ -8,12 +8,5 @@ import javax.persistence.Entity;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
-public class Customer extends User{
-
-    private int weight;
-
-    private int height;
-
-    private int levelOfAdvancement;  // TODO
-
+public class Admin extends User{
 }
