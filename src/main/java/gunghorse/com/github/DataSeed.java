@@ -1,6 +1,10 @@
 package gunghorse.com.github;
 
 import gunghorse.com.github.auth.HorseHomeUserDetailsService;
+import gunghorse.com.github.model.Training;
+import gunghorse.com.github.model.user.Admin;
+import gunghorse.com.github.model.user.Customer;
+import gunghorse.com.github.model.user.Trainer;
 import gunghorse.com.github.model.user.role.Role;
 import gunghorse.com.github.model.user.role.RoleEnum;
 import gunghorse.com.github.model.user.User;
@@ -27,6 +31,9 @@ public class DataSeed implements CommandLineRunner {
     @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
+    private TrainingRepository trainingRepository;
+
     @Override
     public void run(String... args) throws Exception {
         userRepository.deleteAll();
@@ -38,13 +45,13 @@ public class DataSeed implements CommandLineRunner {
 
         roleRepository.saveAll(Arrays.asList(ADMIN, TRAINER, CUSTOMER));
 
-        User johnathan = new User("Jonathan", "Crocodile", "johny.croc@email.com",
+        User johnathan = new Admin("Jonathan", "Crocodile", "johny.croc@email.com",
                 "johny.croc", "1234", new Date(1986, Calendar.APRIL, 2),
                 "+472334124", true, List.of(ADMIN));
-        User benjamin = new User("Benjamin", "Wolf", "benny.w@email.com",
+        User benjamin = new Trainer("Benjamin", "Wolf", "benny.w@email.com",
                 "benny", "1234", new Date(1994, Calendar.MARCH, 1),
                 "+472323124", true, List.of(TRAINER));
-        User sisi = new User("Sisi", "The Horse", "sisi@email.com",
+        User sisi = new Customer("Sisi", "The Horse", "sisi@email.com",
                 "sisi", "1234", new Date(2002, Calendar.OCTOBER, 23),
                 "+472332424", true, List.of(CUSTOMER));
 
@@ -52,5 +59,12 @@ public class DataSeed implements CommandLineRunner {
         udsi.registerNewUserAccount(johnathan);
         udsi.registerNewUserAccount(benjamin);
         udsi.registerNewUserAccount(sisi);
+
+        Training training1 = new Training(new Date(2021, Calendar.FEBRUARY, 19, 14, 0),
+                new Date(2021, Calendar.FEBRUARY, 19, 15, 0));
+        Training training2 = new Training(new Date(2021, Calendar.FEBRUARY, 19, 15, 0),
+                new Date(2021, Calendar.FEBRUARY, 19, 16, 0));
+        trainingRepository.save(training1);
+        trainingRepository.save(training2);
     }
 }
