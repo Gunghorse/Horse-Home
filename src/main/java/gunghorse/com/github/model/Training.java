@@ -33,4 +33,9 @@ public class Training {
     private Date trainingEndTime;
 
     private boolean isPaid;
+
+    public Training(Date trainingStartTime, Date trainingEndTime) {
+        this.trainingStartTime = trainingStartTime;
+        this.trainingEndTime = trainingEndTime;
+    }
 }
