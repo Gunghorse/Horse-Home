@@ -34,8 +34,9 @@ public class Training {
 
     private int capacity;
 
-    public Training(Date startTime, Date endTime) {
+    public Training(Date startTime, Date endTime, int capacity) {
         this.startTime = startTime;
         this.endTime = endTime;
+        this.capacity = capacity;
     }
 }

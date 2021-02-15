@@ -9,4 +9,6 @@ import java.util.List;
 public interface TrainingRepository extends CrudRepository<Training, Integer> {
 
     List<Training> findAllByCustomersIsContaining(User user);
+
+    Training findById(int id);
 }
