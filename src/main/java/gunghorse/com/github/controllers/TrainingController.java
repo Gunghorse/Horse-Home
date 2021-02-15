@@ -89,8 +89,13 @@ public class TrainingController {
         return true;
     }
 
-    /*
-    TODO:
-     - trainings filtering by time and free places
-     */
+    @RequestMapping(value = "/upcoming", method = RequestMethod.GET)
+    public @ResponseBody List<Training> getUpcomingTrainings(){
+        return trainingService.upcomingTrainings();
+    }
+
+    @RequestMapping(value = "/upcomingFree", method = RequestMethod.GET)
+    public @ResponseBody List<Training> getUpcomingFreeTrainings(){
+        return trainingService.upcomingTrainingsWithFreePlaces();
+    }
 }

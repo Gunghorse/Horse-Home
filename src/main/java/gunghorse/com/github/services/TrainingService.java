@@ -6,6 +6,7 @@ import gunghorse.com.github.repositories.TrainingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -34,5 +35,17 @@ public class TrainingService {
 
     public Training save(Training training){
         return trainingRepository.save(training);
+    }
+
+    public List<Training> upcomingTrainings(){
+        Date now = new Date();
+        now.setYear(2021);      // :(
+        return trainingRepository.findAllByStartTimeAfter(now);
+    }
+
+    public List<Training> upcomingTrainingsWithFreePlaces(){
+        return upcomingTrainings().stream()
+                .filter(training -> training.getCapacity() > training.getCustomers().size())
+                .collect(Collectors.toList());
     }
 }
