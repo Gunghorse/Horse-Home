@@ -1,7 +1,7 @@
 package gunghorse.com.github.services;
 
 import gunghorse.com.github.model.Training;
-import gunghorse.com.github.model.user.Customer;
+import gunghorse.com.github.model.user.User;
 import gunghorse.com.github.repositories.TrainingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class TrainingService {
                 .collect(Collectors.toList());
     }
 
-    public List<Training> findAllByCustomer(Customer customer){
-        return trainingRepository.findAllByCustomer(customer);
+    public List<Training> findAllByCustomer(User customer){
+        return trainingRepository.findAllByCustomersIsContaining(customer);
     }
 }

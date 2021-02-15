@@ -2,9 +2,6 @@ package gunghorse.com.github;
 
 import gunghorse.com.github.auth.HorseHomeUserDetailsService;
 import gunghorse.com.github.model.Training;
-import gunghorse.com.github.model.user.Admin;
-import gunghorse.com.github.model.user.Customer;
-import gunghorse.com.github.model.user.Trainer;
 import gunghorse.com.github.model.user.role.Role;
 import gunghorse.com.github.model.user.role.RoleEnum;
 import gunghorse.com.github.model.user.User;
@@ -45,13 +42,13 @@ public class DataSeed implements CommandLineRunner {
 
         roleRepository.saveAll(Arrays.asList(ADMIN, TRAINER, CUSTOMER));
 
-        User johnathan = new Admin("Jonathan", "Crocodile", "johny.croc@email.com",
+        User johnathan = new User("Jonathan", "Crocodile", "johny.croc@email.com",
                 "johny.croc", "1234", new Date(1986, Calendar.APRIL, 2),
                 "+472334124", true, List.of(ADMIN));
-        User benjamin = new Trainer("Benjamin", "Wolf", "benny.w@email.com",
+        User benjamin = new User("Benjamin", "Wolf", "benny.w@email.com",
                 "benny", "1234", new Date(1994, Calendar.MARCH, 1),
                 "+472323124", true, List.of(TRAINER));
-        User sisi = new Customer("Sisi", "The Horse", "sisi@email.com",
+        User sisi = new User("Sisi", "The Horse", "sisi@email.com",
                 "sisi", "1234", new Date(2002, Calendar.OCTOBER, 23),
                 "+472332424", true, List.of(CUSTOMER));
 

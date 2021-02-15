@@ -1,13 +1,13 @@
 package gunghorse.com.github.model;
 
-import gunghorse.com.github.model.user.Customer;
-import gunghorse.com.github.model.user.Trainer;
+import gunghorse.com.github.model.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
@@ -19,23 +19,23 @@ public class Training {
     @ManyToOne
     private Horse horse;
 
-    @ManyToOne
-    private Customer customer;
+    @ManyToMany
+    private List<User> customers;
 
     @ManyToOne
-    private Trainer trainer;
+    private User trainer;
 
     @ManyToOne
     private Offer offer;
 
-    private Date trainingStartTime;
+    private Date startTime;
 
-    private Date trainingEndTime;
+    private Date endTime;
 
-    private boolean isPaid;
+    private int capacity;
 
-    public Training(Date trainingStartTime, Date trainingEndTime) {
-        this.trainingStartTime = trainingStartTime;
-        this.trainingEndTime = trainingEndTime;
+    public Training(Date startTime, Date endTime) {
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 }

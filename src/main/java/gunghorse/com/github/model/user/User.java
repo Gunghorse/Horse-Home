@@ -54,4 +54,7 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 
+    @OneToOne
+    private CustomerInfo customerInfo = null;
+
 }
