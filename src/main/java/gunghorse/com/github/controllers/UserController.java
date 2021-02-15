@@ -67,7 +67,6 @@ public class UserController {
     /*
     TODO:
      - trainings filtering by time
-     - resignation from the training by the current user
      */
 
 }

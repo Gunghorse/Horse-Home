@@ -27,4 +27,12 @@ public class TrainingService {
     public List<Training> findAllByCustomer(User customer){
         return trainingRepository.findAllByCustomersIsContaining(customer);
     }
+
+    public Training findById(int id){
+        return trainingRepository.findById(id);
+    }
+
+    public Training save(Training training){
+        return trainingRepository.save(training);
+    }
 }
