@@ -2,7 +2,6 @@ package gunghorse.com.github.controllers;
 
 import gunghorse.com.github.auth.HorseHomeUserDetails;
 import gunghorse.com.github.model.Training;
-import gunghorse.com.github.model.user.Customer;
 import gunghorse.com.github.model.user.User;
 import gunghorse.com.github.services.TrainingService;
 import gunghorse.com.github.services.UserService;
@@ -62,7 +61,7 @@ public class UserController {
         if (!userService.isCustomer(currentUser)){
             throw new ResponseStatusException(HttpStatus.METHOD_NOT_ALLOWED, "User is not a customer");
         }
-        return trainingService.findAllByCustomer((Customer) currentUser);
+        return trainingService.findAllByCustomer(currentUser);
     }
 
     /*
