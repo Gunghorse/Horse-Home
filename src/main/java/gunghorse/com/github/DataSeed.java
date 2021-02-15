@@ -66,7 +66,10 @@ public class DataSeed implements CommandLineRunner {
                 new Date(2021, Calendar.FEBRUARY, 19, 15, 0), 5);
         Training training2 = new Training(new Date(2021, Calendar.FEBRUARY, 19, 15, 0),
                 new Date(2021, Calendar.FEBRUARY, 19, 16, 0), 1);
+        Training training3 = new Training(new Date(2021, Calendar.FEBRUARY, 14, 15, 0),
+                new Date(2021, Calendar.FEBRUARY, 14, 16, 0), 1);
         trainingRepository.save(training1);
         trainingRepository.save(training2);
+        trainingRepository.save(training3);
     }
 }
