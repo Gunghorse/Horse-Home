@@ -29,23 +29,32 @@ public class User {
         this.roles = roles;
     }
 
+    @Column(nullable = false)
     private String firstName;
 
+    @Column(nullable = false)
     private String lastName;
 
+    @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false, unique = true)
     private String username;
 
+    @Column(nullable = false)
     private String password;
 
     private Date dateOfBirth;
 
+    @Column(nullable = false)
     private String phone;
 
     private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
+
+    @OneToOne
+    private CustomerInfo customerInfo = null;
 
 }

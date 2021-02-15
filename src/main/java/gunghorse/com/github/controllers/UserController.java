@@ -1,7 +1,9 @@
 package gunghorse.com.github.controllers;
 
 import gunghorse.com.github.auth.HorseHomeUserDetails;
+import gunghorse.com.github.model.Training;
 import gunghorse.com.github.model.user.User;
+import gunghorse.com.github.services.TrainingService;
 import gunghorse.com.github.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,10 +22,12 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final TrainingService trainingService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, TrainingService trainingService) {
         this.userService = userService;
+        this.trainingService = trainingService;
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
@@ -45,5 +49,24 @@ public class UserController {
         else
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Access is forbidden");
     }
+
+    @RequestMapping(value = "/{username}/trainings", method = RequestMethod.GET)
+    public @ResponseBody List<Training> getCurrentUsersAllTrainings(@PathVariable("username") String username,
+                                                                    Authentication authentication){
+        String currentUserEmail = ((HorseHomeUserDetails) authentication.getPrincipal()).getUsername();
+        User currentUser = userService.findByEmail(currentUserEmail);
+        if (!currentUser.getUsername().equals(username) && !userService.isAdmin(currentUser)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Access is forbidden");
+        }
+        if (!userService.isCustomer(currentUser)){
+            throw new ResponseStatusException(HttpStatus.METHOD_NOT_ALLOWED, "User is not a customer");
+        }
+        return trainingService.findAllByCustomer(currentUser);
+    }
+
+    /*
+    TODO:
+     - trainings filtering by time
+     */
 
 }

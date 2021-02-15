@@ -1,6 +1,7 @@
 package gunghorse.com.github;
 
 import gunghorse.com.github.auth.HorseHomeUserDetailsService;
+import gunghorse.com.github.model.Training;
 import gunghorse.com.github.model.user.role.Role;
 import gunghorse.com.github.model.user.role.RoleEnum;
 import gunghorse.com.github.model.user.User;
@@ -27,10 +28,18 @@ public class DataSeed implements CommandLineRunner {
     @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
+    private TrainingRepository trainingRepository;
+
     @Override
     public void run(String... args) throws Exception {
+        for (Training training : trainingRepository.findAll()){
+            training.setCustomers(null);
+            trainingRepository.save(training);
+        }
         userRepository.deleteAll();
         roleRepository.deleteAll();
+        trainingRepository.deleteAll();
 
         Role ADMIN = new Role(RoleEnum.ADMIN, "Admin");
         Role TRAINER = new Role(RoleEnum.TRAINER, "Trainer");
@@ -52,5 +61,15 @@ public class DataSeed implements CommandLineRunner {
         udsi.registerNewUserAccount(johnathan);
         udsi.registerNewUserAccount(benjamin);
         udsi.registerNewUserAccount(sisi);
+
+        Training training1 = new Training(new Date(2021, Calendar.FEBRUARY, 19, 14, 0),
+                new Date(2021, Calendar.FEBRUARY, 19, 15, 0), 5);
+        Training training2 = new Training(new Date(2021, Calendar.FEBRUARY, 19, 15, 0),
+                new Date(2021, Calendar.FEBRUARY, 19, 16, 0), 1);
+        Training training3 = new Training(new Date(2021, Calendar.FEBRUARY, 14, 15, 0),
+                new Date(2021, Calendar.FEBRUARY, 14, 16, 0), 1);
+        trainingRepository.save(training1);
+        trainingRepository.save(training2);
+        trainingRepository.save(training3);
     }
 }

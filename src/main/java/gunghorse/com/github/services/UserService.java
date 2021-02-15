@@ -39,4 +39,8 @@ public class UserService {
     public boolean isAdmin(User user){
         return user.getRoles().stream().anyMatch(role -> role.getRole().equals(RoleEnum.ADMIN));
     }
+
+    public boolean isCustomer(User user){
+        return user.getRoles().stream().anyMatch(role -> role.getRole().equals(RoleEnum.CUSTOMER));
+    }
 }
